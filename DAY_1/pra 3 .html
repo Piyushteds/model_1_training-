@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STUDENT REGISTRATION FORM</title>
+    <link rel="stylesheet" href="pra 3.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH0VWLjoIQ0O2NczMrfU1T94mAANSCLw4C2A&s"
+        alt="SILVER OAK UNIVERSITY LOGO"
+        class="logo"
+      />
+      <h1>SILVER OAK UNIVERSITY</h1>
+    </div><hr>
+
+     <div class="tag">
+      <a href="" class="home">Home</a>
+      <a href="" class="about">About Us</a>
+      <a href="" class="contact">Contact Us</a>
+    </div>
+    <form>
+      <h2>STUDENT REGISTRATION FORM</h2>
+      <label id="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter Your Name"
+        required
+      /><br /><br />
+
+      <label id="ENROLL">Enrollment no.:</label>
+      <input type="text" id="ENROLL" required maxlength="12" /><br /><br />
+
+      Branch:
+      <select name="BRANCH" id="BRANCH">
+        <option value="BCA">BCA</option>
+        <option value="BSE-CS">BSE-CS</option>
+        <option value="MTECH">MTECH</option></select
+      ><br /><br />
+
+      <label id="DIV">Division:</label>
+      <input type="text" id="DIV" required maxlength="1" /><br /><br />
+
+      Gender:-<br /><input type="radio" value="Male" name="gender" /> Male
+      <br />
+      <input type="radio" value="Female" name="gender" />Female <br />
+      <input type="radio" value="OTHER" name="gender" />Other<br /><br />
+
+      Mobile No. <input type="tel" name="mno" /> <br /><br />
+
+      Email: <input type="email" name="email" /> <br /><br />
+
+      Password: <input type="password" name="password" /> <br /><br />
+
+      Photo: <input type="file" name="photo" accept="image/*" /> <br /><br />
+
+      Remember Me: <input type="checkbox" name="remember" value="yes" />
+      <br /><br />
+
+      <input type="submit" value="Submit" id="submit" />
+      <input type="reset" value="Reset" id="reset" />
+      
+    </form>
+    <footer>
+        <p>
+          &copy; 2024 Silver Oak University. All rights reserved.
+        </p>
+      </footer>
+  </body>
+</html>
