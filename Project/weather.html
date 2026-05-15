@@ -1,85 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body{
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-        }
-
-        #container{
-            height: 500px;
-            width: 500px;
-            background-color: antiquewhite;
-            margin: auto;
-            color: white;
-            display: flex;
-            justify-content:space-between;
-            flex-direction: column;
-        }
-
-        #heading{
-            padding: 10px;
-            font-weight: 100;
-            font-size: 30px;
-            text-align: center;
-            background-color: brown;
-        }
-
-        #content{
-            margin: 70px;
-            text-align: center;
-        }
-
-        input, button{
-            padding: 10px;
-            border-radius: 10px;
-            border-style: none;
-            font-size: 20px;
-        }
-
-        button{
-            background-color: green;
-            color: white;
-            cursor: pointer;
-        }
-
-        #result{
-            padding: 10px;
-            text-align: center;
-            font-size: 30px;
-            color: white;
-            background-color: brown;
-        }
-    </style>
+<title>Weather App</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#1d2671,#c33764);
+}
+#container{
+    width:450px;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    color:white;
+    background:rgba(255,255,255,.15);
+}
+h1{
+    margin-bottom:30px;
+}
+input{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+button{
+    width:100%;
+    padding:15px;
+    font-size:20px;
+    border:none;
+    border-radius:10px;
+    background:green;
+    color:white;
+    cursor:pointer;
+}
+#result{
+    margin-top:30px;
+    font-size:25px;
+    line-height:40px;
+}
+</style>
 </head>
 <body>
-    <div id="container">
-        <div id="heading"><h2>Weather-Web</h2></div>
-        <div id="content">
-            <input id="city" type="text" placeholder="Enter City Name">
-            <button onclick="getWeather()">Search</button>
-        </div>
-        <div id="result"><h3>Output</h3></div>
-    </div>
-    <script>
-        async function getWeather() {
-        let city = document.getElementById("city").value;
-            let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7ec95472b404a0867b07a113a5153754&units=metric`);
-            let data = await response.json();
-            document.getElementById("result").innerHTML = "Temperature: " + data.main.temp + "°C";
-        }
-    </script>
-  </body>
+<div id="container">
+    <h1>☁ Weather App</h1>
+    <input id="city" placeholder="Enter city">
+    <button onclick="getWeather()">Search </button>
+    <div id="result">Output</div>
+</div>
+<script>
+async function getWeather(){
+    let city=document.getElementById("city").value;
+    let result=document.getElementById("result");
+    try{
+        let response=await fetch(`https://wttr.in/${city}?format=j1`);
+        let data=await response.json();
+        result.innerHTML=`
+        📍 ${city}<br>
+        🌡 ${data.current_condition[0].temp_C} °C<br>
+        ☁ ${data.current_condition[0].weatherDesc[0].value}
+        `;}
+    catch{result.innerHTML="City not found";}
+}
+</script>
+</body>
 </html>
