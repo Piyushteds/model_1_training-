@@ -1,0 +1,50 @@
+<!-- write a html code to position a video in the center of the page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Position</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#0f172a,#1e293b);
+            padding:20px;
+        }
+
+        .video-container{
+            width:640px;
+            height:360px;
+            border-radius:10px;
+            overflow:hidden;
+        }
+
+        .video-container video{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+        .video-container video:hover{
+            transform:scale(1.1);
+            transition:0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video controls>
+            <source src="WhatsApp Video 2026-05-13 at 10.41.44 AM.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>

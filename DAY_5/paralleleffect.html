@@ -1,0 +1,59 @@
+<!-- write a html code to parallel effect on two images -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Effect on Images</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#0f172a,#1e293b);
+            padding:20px;
+        }
+
+        .container{
+            display:flex;
+            gap:20px;
+        }
+
+        .image-container{
+            position:relative;
+            width:300px;
+            height:200px;
+            overflow:hidden;
+            border-radius:10px;
+        }
+
+        .image-container img{
+            width:100%;
+            height:100%;
+            object-fit:fill;
+            transition:0.5s;
+        }
+
+        .container:hover .image-container img{
+            transform:scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="rollimage.png" alt="Image 1">
+        </div>
+        <div class="image-container">
+            <img src="bmwimage.png" alt="Image 2">
+        </div>
+    </div>
+</body>
+</html>
